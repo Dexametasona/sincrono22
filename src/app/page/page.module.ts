@@ -10,7 +10,9 @@ import { LayoutModule } from '@angular/cdk/layout';
 import { PostComponent } from './post/post.component';
 import { LoginComponent } from './login/login.component';
 import {MatInputModule} from '@angular/material/input';
-import { ReactiveFormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import {MatDialogModule} from '@angular/material/dialog';
+import { MatFormField, MatLabel } from '@angular/material/form-field';
 
 
 @NgModule({
@@ -28,12 +30,19 @@ import { ReactiveFormsModule } from '@angular/forms';
     MatButtonModule,
     LayoutModule,
     MatInputModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    MatDialogModule,
+    FormsModule,
+    
   ],
   exports:[
     HomeComponent,
     PostComponent,
-    LoginComponent
+    LoginComponent,
+    MatFormField,
+    MatLabel,
+    FormsModule,
+    MatDialogModule
   ]
 })
 export class PageModule { }

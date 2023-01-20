@@ -1,6 +1,8 @@
+import { DialogoComponent } from '../../dialogo/dialogo.component';
 import { Component } from '@angular/core';
 import { map } from 'rxjs/operators';
 import { Breakpoints, BreakpointObserver } from '@angular/cdk/layout';
+import { MatDialog } from '@angular/material/dialog';
 
 @Component({
   selector: 'app-home',
@@ -29,5 +31,19 @@ export class HomeComponent {
     })
   );
 
-  constructor(private breakpointObserver: BreakpointObserver) {}
+  constructor(private breakpointObserver: BreakpointObserver, public dialog: MatDialog) {}
+  animal!: string;
+  name!: string;
+  
+  openDialog(): void {
+    const dialogRef = this.dialog.open(DialogoComponent, {
+      data: {name: this.name, animal: this.animal},
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      console.log('The dialog was closed');
+      this.animal = result;
+    });
+  }
+
 }

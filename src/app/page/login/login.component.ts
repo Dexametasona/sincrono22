@@ -26,4 +26,5 @@ export class LoginComponent {
 
   constructor(private breakpointObserver: BreakpointObserver) {}
   emailFormControl = new FormControl('', [Validators.required, Validators.email]);
+  passFormControl = new FormControl('', [Validators.required, Validators.minLength(4)]);
 }

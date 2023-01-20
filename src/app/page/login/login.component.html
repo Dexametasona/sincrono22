@@ -17,16 +17,32 @@
         </mat-card-header>
         <mat-card-content class="dashboard-card-content">
           <form class="example-form">
+            <!-- correo----------------------------------------------- -->
             <mat-form-field class="example-full-width">
-              <mat-label>Email</mat-label>
-              <input type="email" matInput [formControl]="emailFormControl" placeholder="Ex. pat@example.com">
+              <mat-label>Correo</mat-label>
+              <input type="email" matInput [formControl]="emailFormControl" placeholder="ejemplo: hola@gmail.com">
               <mat-error *ngIf="emailFormControl.hasError('email') && !emailFormControl.hasError('required')">
-                Please enter a valid email address
+                Correo inválido
               </mat-error>
               <mat-error *ngIf="emailFormControl.hasError('required')">
-                Email is <strong>required</strong>
+                Correo es <strong>requerido</strong>
               </mat-error>
             </mat-form-field>
+            <!-- contraseña--------------------------------------- -->
+            <mat-form-field class="example-full-width">
+              <mat-label>Contraseña</mat-label>
+              <input type="password" matInput [formControl]="passFormControl" placeholder="minimo 4 caracteres">
+              <mat-error *ngIf="passFormControl.hasError('minlength') && !passFormControl.hasError('required')">
+                Contraseña Inválida
+              </mat-error>
+              <mat-error *ngIf="passFormControl.hasError('required')">
+                Contraseña es <strong>requerida.</strong>
+              </mat-error>
+            </mat-form-field>
+            <!-- boton.----------------------------------------------- -->
+            <div class="example-button-row">
+              <button mat-raised-button color="primary">Enviar</button>
+            </div>
           </form>
         </mat-card-content>
       </mat-card>
